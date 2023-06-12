@@ -1,0 +1,1042 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+body {
+    position: relative;
+    min-width: 320px;
+    background-color: #E5E5E5;
+    /* font-family: 'font', sans-serif; */
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+.list-reset {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.btn-reset {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.container {
+    padding: 20px;
+}
+
+.hidden {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Header */
+
+.header {
+    background-color: #fff;
+    box-shadow: 0px 9.03012px 27.0904px rgba(176, 190, 197, 0.32), 0px 3.38629px 5.64383px rgba(176, 190, 197, 0.32);
+}
+
+.header__container {
+    display: flex;
+    margin-bottom: 40px;
+}
+
+.header__logo {
+    margin-right: 53px;
+}
+
+.search__wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 581px;
+}
+
+.header__search__btn {
+    display: none;
+}
+
+.header__search {
+    position: relative;
+    z-index: 1001;
+    width: 100%;
+    height: 100%;
+    padding: 12px;
+    border: none;
+    outline: none;
+    outline: 1px solid #33333333;
+    transition: box-shadow .3s ease-in-out;
+}
+
+.header__search:focus-visible {
+    border: none;
+    outline: none;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.header__search:hover {
+  outline: none;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.header__search::placeholder {
+    color: #26242433;
+}
+
+.autocomplite-list {
+    position: absolute;
+    width: 100%;
+    max-width: 579px;
+    z-index: -1;
+    top: 55px;
+    left: 1px;
+    border: 1px solid #33333333;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.autocomplite-item {
+    padding: 12px;
+    background-color: #fff;
+    transition: background-color .3s ease-in-out;
+}
+
+.autocomplite-item:focus-visible {
+    background-color: #b097f6;
+    outline: none;
+}
+
+.autocomplite-item:hover {
+    background-color: #b097f6;
+}
+
+.autocomplite-item:active {
+  background-color: #fff;
+}
+
+/* Main */
+
+.main__container {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px 20px 20px;
+}
+
+.crm__title {
+    margin: 0;
+    margin-bottom: 29px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 33px;
+}
+
+/* Table */
+
+/* Table header */
+
+.crm__table {
+    position: relative;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.crm__table__th {
+    padding: 10px 12px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.crm__table__th__btn {
+    text-align: left;
+    border: none;
+    outline: none;
+}
+
+.crm__table__th__btn:hover .crm__table__th__descr {
+    color: #9873FF;
+}
+
+.crm__table__th__btn:focus-visible .crm__table__th__descr {
+  color: #9873FF;
+}
+
+.crm__table__th__descr {
+    color: #B0B0B0;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    transition: color .3s ease-in-out;
+}
+
+.crm__table__th__id.rotate svg {
+    transform: rotate(180deg);
+}
+
+.crm__table__th__name.rotate svg {
+    transform: rotate(180deg);
+}
+
+.crm__table__th__time .crm__table__th__btn {
+    max-width: 82px;
+}
+
+.crm__table__th__time.rotate svg {
+    transform: rotate(180deg);
+}
+
+.crm__table__th__time--change.rotate svg {
+  transform: rotate(180deg);
+}
+
+.crm__table__th__contacts {
+    width: 140px;
+}
+
+/* Table body */
+
+.crm__table__list {
+    height: 100%;
+    min-height: 300px;
+}
+
+.preloader {
+    width: 100%;
+    height: 300px;
+}
+
+.preloader__row {
+    position: absolute;
+    z-index: 1000;
+    top: 16%;
+    width: 100%;
+    min-width: 400px;
+    height: 300px;
+    background-color: #fff;
+    opacity: 1;
+}
+
+.preloader__svg {
+    position: absolute;
+    z-index: 1001;
+    top: 60%;
+    left: 50%;
+    opacity: 1001;
+    animation: preload-rotate 1s infinite linear;
+}
+
+.preloader.hidden .preloader__img__wrapper {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    visibility: hidden;
+}
+
+@keyframes preload-rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.crm__table__row {
+    background-color: #fff;
+    border-bottom: 1px solid #C8C5D1;
+    border-color: #C8C5D1;
+    transition: background-color .3s ease-in-out;
+}
+
+.crm__table__row.highlight {
+  background-color: #e4e3e3;
+}
+
+.crm__table__cell {
+    padding: 20px 12px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+}
+
+.crm__table__id {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #B0B0B0;
+}
+
+.crm__table__name {
+    position: relative;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+}
+
+.crm__table__name span {
+    display: flex;
+    justify-content: space-between;
+}
+
+.crm__table__name__copyLink {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.crm__table__name__copyBtn {
+    position: relative;
+}
+
+.crm__table__name__copyBtn svg {
+    fill: #9873FF;
+    opacity: 0.7;
+    transition: fill .3s ease-in-out, opacity .3s ease-in-out;
+}
+
+.crm__table__name__copyBtn:focus-visible {
+    outline: none;
+    border: none;
+}
+
+.crm__table__name__copyBtn:focus-visible svg {
+    fill: #44307a;
+}
+
+.crm__table__name__copyBtn:hover svg {
+    opacity: 1;
+}
+
+.copied {
+    position: absolute;
+    top: -12px;
+    left: -17px;
+    opacity: 0.7;
+}
+
+.crm__table__cell__time {
+    color: #B0B0B0;
+}
+
+.crm__table__cell__create-time--fulldate,
+.crm__table__cell__change-time--fulldate {
+    margin-right: 10px;
+}
+
+.crm__table__cell__create-time--time,
+.crm__table__cell__change-time--time {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    color: #B0B0B0;
+}
+
+.crm__table__cell__date {
+    color: #333;
+}
+
+.contacts__list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contacts__list.hide-child .contact__wrapper:nth-child(n+5) {
+    display: none;
+}
+
+.contact__wrapper {
+    position: relative;
+    transition: all 1s ease-in-out;
+}
+
+.crm__table__cell__contacts__button {
+    outline: none;
+}
+
+.crm__table__cell__contacts--img {
+    margin-right: 7px;
+    cursor: pointer;
+}
+
+.crm__table__cell__contacts--img  g,
+.crm__table__cell__contacts--img path {
+  transition: opacity .5s ease-in-out;
+}
+
+.crm__table__cell__contacts__button:focus-visible g {
+    opacity: 1;
+}
+
+.crm__table__cell__contacts--img:hover g {
+    opacity: 1;
+}
+
+.crm__table__cell__contacts--popup {
+    position: absolute;
+    top: -45px;
+    left: -105px;
+    width: auto;
+    min-width: 230px;
+    padding: 7px 5px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #fff;
+    background-color: #333;
+    text-align: center;
+    z-index: -1;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s ease-in-out;
+}
+
+.crm__table__cell__contacts--popup::after {
+  content: '';
+  position: absolute;
+  left: 45%;
+  bottom: -20px;
+  border: 10px solid transparent;
+  border-top: 20px solid #333;
+
+}
+
+.contact__wrapper:hover .crm__table__cell__contacts--popup {
+    z-index: 1;
+    opacity: 1;
+    visibility: visible;
+}
+
+.contacts__show__btn {
+    display: flex;
+    width: 16px;
+    height: 16px;
+    padding: 2px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 8px;
+    line-height: 11px;
+    border: 1px solid #9873FF;
+    border-radius: 100%;
+}
+
+.crm__table__cell__btns {
+    display: flex;
+    align-items: center;
+}
+
+.table__change__btn,
+.table__delete__btn {
+    display: flex;
+    outline: none;
+    border: none;
+}
+
+.table__change__btn {
+    margin-right: 30px;
+}
+
+.table__change__btn span,
+.table__delete__btn span {
+  transition: color .3s ease-in-out;
+}
+
+.table__change__btn:focus-visible span {
+    color: #9873FF;
+}
+
+.table__change__btn:hover span {
+    color: #9873FF;
+}
+
+.table__delete__btn:focus-visible span {
+  color: #F06A4D;
+}
+
+.table__delete__btn:hover span {
+    color: #F06A4D;
+}
+
+/* Modal window */
+.form__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 1001;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    overflow-y: auto;
+    transition: all .8s ease-in-out;
+}
+
+.form__wrapper.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.input__wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 25px 30px;
+}
+
+.crm__add-form {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: -100%;
+    width: 100%;
+    max-width: 450px;
+    background-color: #fff;
+    opacity: 0;
+    overflow: hidden;
+    overflow-y: auto;
+    transition: all .8s ease-in-out;
+}
+
+.form__wrapper.open .crm__add-form {
+    transform: none;
+    opacity: 1;
+    top: 100px;
+}
+
+.crm__add-form__close-btn {
+    position: absolute;
+    top: 10px;
+    right: 2%;
+    outline: none;
+}
+
+.crm__add-form__close-btn path {
+    transition: fill .3s ease-in-out;
+}
+
+.crm__add-form__close-btn:focus-visible path {
+    fill: #9873FF;
+}
+
+.crm__add-form__close-btn:hover path {
+    fill: #9873FF;
+}
+
+.crm__add-form__title {
+    margin: 0;
+    margin-bottom: 32px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+}
+
+.crm__add-form__title__id {
+    margin-left: 9px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #B0B0B0;
+}
+
+.form__input {
+    padding-bottom: 4px;
+    margin-bottom: 32px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #C8C5D1;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+}
+
+.new-lastname {
+    margin: 0;
+}
+
+.form__input::placeholder {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    color: #B0B0B0;
+}
+
+.btn__wrapper {
+    align-self: center;
+}
+
+.crm__add-form__add-btn {
+    display: flex;
+    align-items: center;
+    padding: 12.5px 26.5px;
+    color: #9873FF;
+    border: 1px solid #9873FF;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    transition: background-color .3s ease-in-out;
+}
+
+.crm__add-form__add-btn svg {
+    margin-right: 10px;
+}
+
+.crm__add-form__add-btn path {
+    transition: fill .3s ease-in-out;
+}
+
+.crm__add-form__add-btn__text {
+    transition: color .3s ease-in-out;
+}
+
+.crm__add-form__add-btn:focus-visible {
+    background-color: #9873FF;
+    outline: none;
+}
+
+.crm__add-form__add-btn:focus-visible path {
+    fill: #fff;
+}
+
+.crm__add-form__add-btn:focus-visible .crm__add-form__add-btn__text {
+    color: #fff;
+}
+
+.crm__add-form__add-btn:hover {
+    background-color: #9873FF;
+}
+
+.crm__add-form__add-btn:hover path {
+    fill: #fff;
+}
+
+.crm__add-form__add-btn:hover .crm__add-form__add-btn__text {
+    color: #fff;
+}
+
+.crm__add-form__select-wrapper {
+    position: relative;
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.crm__add-form__select-wrapper .error {
+    position: absolute;
+    top:  3px;
+    left: 36.5%;
+}
+
+.crm__add-form__select {
+    position: relative;
+}
+
+.crm__add-form__contacts {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+}
+
+.crm__add-form__contacts.active {
+    padding: 25px 30px;
+}
+
+.crm__add-form__input-contact {
+    width: 100%;
+    max-width: 267px;
+    padding: 8px 12px;
+    background-color: #F4F3F6;
+    border: 1px solid #C8C5D1;
+    border-left: none;
+    transition: background-color .3s ease-in-out;
+}
+
+.crm__add-form__input-contact::placeholder {
+    color: #B0B0B0;
+    transition: color .3s ease-in-out;
+}
+
+.crm__add-form__input-contact:hover::placeholder {
+    color: #333;
+}
+
+.crm__add-form__input-contact:focus {
+    background-color: #E7E5EB;
+    border: 1px solid #C8C5D1;
+    border-left: none;
+    outline: none;
+}
+
+.crm__add-form__input-contact:hover {
+    background-color: #E7E5EB;
+}
+
+.choices {
+    width: 100%;
+    max-width: 123px;
+    margin-bottom: 0;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.choices__inner {
+    padding: 10px 12px;
+    border-radius: 0;
+    background-color: #E7E5EB;
+    border-color: #C8C5D1;
+    transition: background-color .3s ease-in-out, color .3s ease-in-out;
+}
+
+.is-flipped.is-open .choices__inner {
+    border-radius: 0;
+}
+
+.is-focused .choices__inner {
+    background-color: #F4F3F6;
+    color: #B0B0B0;
+}
+
+.choices__inner:hover {
+    background-color: #F4F3F6;
+    color: #B0B0B0;
+}
+
+.choices__list--dropdown, .choices__list[aria-expanded] {
+    border-color: #C8C5D1;
+    word-break: normal;
+    opacity: 0;
+    transition: all .3s ease-in-out;
+}
+
+.is-active.choices__list--dropdown, .is-activeß.choices__list[aria-expanded] {
+    opacity: 1;
+}
+
+.choices__list--dropdown .choices__item, .choices__list[aria-expanded] .choices__item {
+    padding: 10px 12px;
+    background-color: #F4F3F6;
+    transition: background-color .3s ease-in-out;
+}
+
+.choices__list--dropdown .choices__item--selectable.is-highlighted, .choices__list[aria-expanded] .choices__item--selectable.is-highlighted {
+    background-color: #E7E5EB;
+}
+
+.choices__list--dropdown .choices__item, .choices__list[aria-expanded] .choices__item:hover {
+    background-color: #E7E5EB;
+}
+
+.is-flipped .choices__list--dropdown, .is-flipped .choices__list[aria-expanded] {
+    border-radius: 0;
+}
+
+.choices[data-type*=select-one]::after {
+    content: "";
+    height: 9px;
+    width: 9px;
+    border: solid #9873FF;
+    border-width: 0 1px 1px 0;
+    display: inline-block;
+    position: absolute;
+    right: 11.5px;
+    top: 43%;
+    margin-top: -2.5px;
+    pointer-events: none;
+    transform: rotate(45deg);
+    transition: transform .3s ease-in-out;
+}
+
+.choices[data-type*=select-one].is-open::after {
+    content: "";
+    height: 9px;
+    width: 9px;
+    border: solid #9873FF;
+    border-width: 0 1px 1px 0;
+    display: inline-block;
+    position: absolute;
+    right: 11.5px;
+    top: 43%;
+    margin-top: -2.5px;
+    pointer-events: none;
+    transform: rotate(-135deg);
+}
+
+.crm__add-form__delete-contact-btn {
+    display: flex;
+    align-items: center;
+    padding: 10px 6px;
+    background-color: #E7E5EB;
+    border: 1px solid #C8C5D1;
+    border-left: none;
+    transition: background-color .3s ease-in-out;
+}
+
+.crm__add-form__delete-contact-btn path {
+    fill: #B0B0B0;
+    transition: fill .3s ease-in-out;
+}
+
+.crm__add-form__delete-contact-btn:focus {
+    outline: none;
+    background-color: #F4F3F6;
+}
+
+.crm__add-form__delete-contact-btn:focus path {
+    fill: #333;
+}
+
+.crm__add-form__delete-contact-btn:hover {
+    background-color: #F4F3F6;
+}
+
+.crm__add-form__delete-contact-btn:hover path {
+    fill: #333;
+}
+
+.add-contact__btn__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.crm__add-form__btn__contacts {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 8px 150px;
+    background-color: #E7E5EB;
+    transition: background-color .3s ease-in-out;
+}
+
+.crm__add-form__btn__contacts svg {
+    margin-right: 4px;
+}
+
+.crm__add-form__btn__contacts:focus {
+  background-color: #F4F3F6;
+  outline: none;
+}
+
+.crm__add-form__btn__contacts:hover {
+    background-color: #F4F3F6;
+}
+
+.crm__add-form__btn__text {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+}
+
+.crm__add-form__btn__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 30px;
+}
+
+.crm__add-form__btn__wrapper .error {
+    margin-bottom: 10px;
+}
+
+.crm__add-form__btn__save {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 147px;
+    padding: 12.5px 35px;
+    margin-bottom: 5px;
+    background-color: #9873FF;
+    color: #fff;
+    outline: 1px solid #9873FF;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    transition: background-color .3s ease-in-out, color .3s ease-in-out, outline-color .3s ease-in-out;
+}
+
+.crm__add-form__btn__save svg {
+    margin-right: 4px;
+    width: 16px;
+    height: 16px;
+    animation: preload-rotate 1s infinite linear;
+}
+
+@keyframes spinner-rotate {
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+.crm__add-form__btn__save:focus-visible {
+  background-color: #fff;
+  color: #9873FF;
+}
+
+.crm__add-form__btn__save:hover {
+    background-color: #fff;
+    color: #9873FF;
+}
+
+.crm__add-form__btn__save:active {
+    background-color: #fff;
+    color: #5e43a8;
+    outline-color: #5e43a8;
+}
+
+.crm__add-form__btn__cancel,
+.crm__add-form__btn__delete {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    text-decoration: underline;
+    outline: none;
+    transition: color .3s ease-in-out;
+}
+
+.crm__add-form__btn__cancel:focus-visible,
+.crm__add-form__btn__delete:focus-visible {
+    color: #9873FF;
+}
+
+.crm__add-form__btn__cancel:hover,
+.crm__add-form__btn__delete:hover {
+    color: #9873FF;
+}
+
+.crm__add-form__btn__cancel:active,
+.crm__add-form__btn__delete:active {
+    color: #5332ab;
+}
+
+
+/* Delete modal window */
+.delete__modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    visibility: hidden;
+    overflow-y: auto;
+    transition: all .6s ease-in-out;
+}
+
+.delete__modal.open {
+    z-index: 1001;
+    opacity: 1;
+    visibility: visible;
+}
+
+.delete__modal__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    max-width: 450px;
+    padding: 22px 87px 27px 88px;
+    background-color: #fff;
+    transform:
+        translateY(-100%)
+        rotateX(60deg)
+        perspective(1000px);
+    opacity: 0;
+    transition: all .6s ease-in-out;
+}
+
+.delete__modal.open .delete__modal__content {
+    transform: none;
+    opacity: 1;
+}
+
+.delete__modal__content__close {
+    position: absolute;
+    top: 5%;
+    right: 2%;
+}
+
+.delete__modal__content__title {
+    margin: 0;
+    margin-bottom: 11px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+}
+
+.delete__modal__content__text {
+    max-width: 275px;
+    margin: 0;
+    margin-bottom: 25px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    text-align: center;
+}
+
+.delete__modal__content__buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.delete__modal__content__accept {
+    padding: 12.5px 35px;
+    margin-bottom: 17.5px;
+    background-color: #9873FF;
+    color: #fff;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+}
+
+.delete__modal__content__cancel {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    text-decoration: underline;
+}

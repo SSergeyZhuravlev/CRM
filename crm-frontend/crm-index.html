@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
+  <link rel="stylesheet" href="styles/crm-styles.css">
+  <link rel="stylesheet" href="styles/crm-media.css">
+  <title>CRM</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container header__container">
+            <a href="#" class="header__logo">
+                <img src="img/header-logo.jpg" alt="Логотип компании" class="header__img">
+            </a>
+            <div class="search__wrapper">
+                <input type="text" class="header__search" placeholder="Введите запрос">
+                <ul class="autocomplite-list list-reset"></ul>
+            </div>
+            <button class="header__search__btn btn-reset">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="#9873FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M20.9999 21L16.6499 16.65" stroke="#9873FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+    </header>
+    <main class="crm__main-content">
+        <div class="container main__container">
+            <h1 class="crm__title">Клиенты</h1>
+            <table class="crm__table">
+                <thead class="crm__table__header">
+                    <tr class="crm__table__header__tr">
+                        <th class="crm__table__th crm__table__th__id">
+                            <button class="crm__table__th__btn crm__table__th__btn--id btn-reset">
+                                <span class="crm__table__th__descr">ID</span>
+                                <span class="crm__table__th__svg">
+                                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_221_915)">
+                                    <path d="M2 6L2.705 6.705L5.5 3.915L5.5 10L6.5 10L6.5 3.915L9.29 6.71L10 6L6 2L2 6Z" fill="#9873FF"/>
+                                    </g>
+                                    <defs>
+                                    <clipPath>
+                                    <rect width="12" height="12" fill="white" transform="translate(12 12) rotate(-180)"/>
+                                    </clipPath>
+                                    </defs>
+                                  </svg>
+                                </span>
+                            </button>
+                        </th>
+                        <th class="crm__table__th crm__table__th__name">
+                            <button class="crm__table__th__btn crm__table__th__btn--fullname btn-reset">
+                                <span class="crm__table__th__descr">Фамилия Имя Отчество</span>
+                                <span class="crm__table__th__svg">
+                                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_221_918)">
+                                    <path d="M10 6L9.295 5.295L6.5 8.085L6.5 2H5.5L5.5 8.085L2.71 5.29L2 6L6 10L10 6Z" fill="#9873FF"/>
+                                    </g>
+                                    <defs>
+                                    <clipPath>
+                                    <rect width="12" height="12" fill="white"/>
+                                    </clipPath>
+                                    </defs>
+                                  </svg>
+                                </span>
+                            </button>
+                        </th>
+                        <th class="crm__table__th crm__table__th__time">
+                            <button class="crm__table__th__btn crm__table__th__btn--createtime btn-reset">
+                                <span class="crm__table__th__descr crm__table__th__descr--time">Дата и время создания</span>
+                                <span class="crm__table__th__svg">
+                                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_221_918)">
+                                    <path d="M10 6L9.295 5.295L6.5 8.085L6.5 2H5.5L5.5 8.085L2.71 5.29L2 6L6 10L10 6Z" fill="#9873FF"/>
+                                    </g>
+                                    <defs>
+                                    <clipPath>
+                                    <rect width="12" height="12" fill="white"/>
+                                    </clipPath>
+                                    </defs>
+                                  </svg>
+                                </span>
+                            </button>
+                        </th>
+                        <th class="crm__table__th crm__table__th__time crm__table__th__time--change">
+                            <button class="crm__table__th__btn crm__table__th__btn--changetime btn-reset">
+                                <span class="crm__table__th__descr crm__table__th__descr--time">Последние изменения</span>
+                                <span class="crm__table__th__svg">
+                                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_221_918)">
+                                    <path d="M10 6L9.295 5.295L6.5 8.085L6.5 2H5.5L5.5 8.085L2.71 5.29L2 6L6 10L10 6Z" fill="#9873FF"/>
+                                    </g>
+                                    <defs>
+                                    <clipPath>
+                                    <rect width="12" height="12" fill="white"/>
+                                    </clipPath>
+                                    </defs>
+                                  </svg>
+                                </span>
+                            </button>
+                        </th>
+                        <th class="crm__table__th crm__table__th__contacts">
+                            <span class="crm__table__th__descr">Контакты</span>
+                        </th>
+                        <th class="crm__table__th">
+                            <span class="crm__table__th__descr">Действия</span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="preloader">
+                    <tr class="preloader__row">
+                        <div class="preloader__img__wrapper">
+                          <svg class="preloader__svg" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2 20C2 29.941 10.059 38 20 38C29.941 38 38 29.941 38 20C38 10.059 29.941 2 20 2C17.6755 2 15.454 2.4405 13.414 3.243" stroke="#9873FF" stroke-width="4" stroke-miterlimit="10" stroke-linecap="round"/>
+                          </svg>
+                        </div>
+                    </tr>
+                </tbody>
+                <tbody class="crm__table__list"></tbody>
+            </table>
+            <div class="btn__wrapper">
+                <button class="btn-reset crm__add-form__add-btn">
+                    <svg width="23" height="16" viewBox="0 0 23 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M14.5 8C16.71 8 18.5 6.21 18.5 4C18.5 1.79 16.71 0 14.5 0C12.29 0 10.5 1.79 10.5 4C10.5 6.21 12.29 8 14.5 8ZM5.5 6V3H3.5V6H0.5V8H3.5V11H5.5V8H8.5V6H5.5ZM14.5 10C11.83 10 6.5 11.34 6.5 14V16H22.5V14C22.5 11.34 17.17 10 14.5 10Z" fill="#9873FF"/>
+                    </svg>
+                    <span class="crm__add-form__add-btn__text">Добавить клиента</span>
+                </button>
+            </div>
+            <div class="form__wrapper">
+                <form action="#" class="crm__add-form" tabindex="0">
+                <div class="input__wrapper">
+                    <h2 class="crm__add-form__title"></h2>
+                    <button type="button" class="btn-reset crm__add-form__close-btn btn disabled-while-loading">
+                        <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M16.2332 1.73333L15.2665 0.766664L8.49985 7.53336L1.73318 0.766696L0.766515 1.73336L7.53318 8.50003L0.766542 15.2667L1.73321 16.2333L8.49985 9.46669L15.2665 16.2334L16.2332 15.2667L9.46651 8.50003L16.2332 1.73333Z" fill="#B0B0B0"/>
+                        </svg>
+                    </button>
+                    <input type="text" class="new-surname form__input required-input disabled-while-loading" placeholder="Фамилия*">
+                    <input type="text" class="new-name form__input required-input disabled-while-loading" placeholder="Имя*">
+                    <input type="text" class="new-lastname form__input disabled-while-loading" placeholder="Отчество">
+                  </div>
+                  <div class="crm__add-form__contacts"></div>
+                  <div class="add-contact__btn__wrapper">
+                      <button type="button" class="btn-reset crm__add-form__btn__contacts btn disabled-while-loading">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <g clip-path="url(#clip0_224_6287)">
+                          <path d="M7.99998 4.66671C7.63331 4.66671 7.33331 4.96671 7.33331 5.33337V7.33337H5.33331C4.96665 7.33337 4.66665 7.63337 4.66665 8.00004C4.66665 8.36671 4.96665 8.66671 5.33331 8.66671H7.33331V10.6667C7.33331 11.0334 7.63331 11.3334 7.99998 11.3334C8.36665 11.3334 8.66665 11.0334 8.66665 10.6667V8.66671H10.6666C11.0333 8.66671 11.3333 8.36671 11.3333 8.00004C11.3333 7.63337 11.0333 7.33337 10.6666 7.33337H8.66665V5.33337C8.66665 4.96671 8.36665 4.66671 7.99998 4.66671ZM7.99998 1.33337C4.31998 1.33337 1.33331 4.32004 1.33331 8.00004C1.33331 11.68 4.31998 14.6667 7.99998 14.6667C11.68 14.6667 14.6666 11.68 14.6666 8.00004C14.6666 4.32004 11.68 1.33337 7.99998 1.33337ZM7.99998 13.3334C5.05998 13.3334 2.66665 10.94 2.66665 8.00004C2.66665 5.06004 5.05998 2.66671 7.99998 2.66671C10.94 2.66671 13.3333 5.06004 13.3333 8.00004C13.3333 10.94 10.94 13.3334 7.99998 13.3334Z" fill="#9873FF"/>
+                          </g>
+                          <defs>
+                          <clipPath id="clip0_224_6287">
+                          <rect width="16" height="16" fill="white"/>
+                          </clipPath>
+                          </defs>
+                        </svg>
+                        <span class="crm__add-form__btn__text">Добавить контакт</span>
+                      </button>
+                  </div>
+                  <div class="crm__add-form__btn__wrapper">
+                      <button class="btn-reset crm__add-form__btn__save disabled-while-loading">
+                        <div class="crm__add-form__btn__save__img hidden">
+                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_224_6260)">
+                            <path d="M3.00008 8.03996C3.00008 10.8234 5.2566 13.08 8.04008 13.08C10.8236 13.08 13.0801 10.8234 13.0801 8.03996C13.0801 5.25648 10.8236 2.99996 8.04008 2.99996C7.38922 2.99996 6.7672 3.1233 6.196 3.348" stroke="#B89EFF" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"/>
+                            </g>
+                            <defs>
+                            <clipPath id="clip0_224_6260">
+                            <rect width="16" height="16" fill="white"/>
+                            </clipPath>
+                            </defs>
+                          </svg>
+                        </div>
+                        <span class="crm__add-form__btn__save--text">Сохранить</span>
+                      </button>
+                      <button type="button" class="btn-reset crm__add-form__btn__cancel disabled-while-loading">Отмена</button>
+                  </div>
+                </form>
+            </div>
+
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+    <script type="module" src="./crm-main.js"></script>
+</body>
+</html>
