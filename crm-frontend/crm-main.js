@@ -5,8 +5,6 @@ const spinner = document.querySelector('.crm__add-form__btn__save__img');
 const crmForm = document.querySelector('.crm__add-form');
 const disabledItems = document.querySelectorAll('.disabled-while-loading');
 
-import { createErrorMessage } from "./helpers.js";
-
 // Получение списка пользователей
 async function getUsers() {
   let response = await fetch (`http://localhost:3000/api/clients`);
@@ -21,13 +19,7 @@ async function getUsers() {
 
 let usersList = [];
 let dataList = await getUsers();
-if (dataList) {
-  usersList = dataList;
-
-  for (const item of usersList) {
-    item.fullName = item.surname + ' ' + item.name + ' ' + item.lastName;
-  }
-}
+if (dataList) usersList = dataList;
 
 // Создание записи о новом пользователе
 async function setUser(obj) {
@@ -235,10 +227,11 @@ function createUser(obj) {
   })
 
   //ФИО пользователя
+  obj.fullName = `${obj.surname + ' ' + obj.name + ' ' + obj.lastName}`;
   const userFullName = document.createElement('td');
   const userFullNameText = document.createElement('span');
   userFullName.classList.add('crm__table__name', 'crm__table__cell');
-  userFullNameText.textContent = `${obj.surname + ' ' + obj.name + ' ' + obj.lastName}`;
+  userFullNameText.textContent = obj.fullName;
   userFullNameText.append(userLinkContainer, copyLinkBtn);
   userFullName.append(userFullNameText);
 
@@ -707,16 +700,16 @@ formAddContactBtn.addEventListener('click', () => {
 });
 
 // // Сообщение об ошибках
-// function createErrorMessage(text) {
-//   const error = document.createElement('span');
-//   error.classList.add('error');
-//   error.style.color = 'red';
-//   error.style.backgroundColor = 'transparent';
-//   error.style.fontSize = '9px';
-//   error.innerHTML = text;
+function createErrorMessage(text) {
+  const error = document.createElement('span');
+  error.classList.add('error');
+  error.style.color = 'red';
+  error.style.backgroundColor = 'transparent';
+  error.style.fontSize = '9px';
+  error.innerHTML = text;
 
-//   return error
-// }
+  return error
+}
 
 // Отправка формы
 crmForm.addEventListener('submit', async (e) => {
@@ -825,8 +818,8 @@ crmForm.addEventListener('submit', async (e) => {
         return
       }
 
-        usersList.push(setNewUser.newItem);
-        renderUsers(usersList);
+      usersList.push(setNewUser.newItem);
+      renderUsers(usersList);
     } else {
       let searchedUser = await searchUserById(userId);
       let changingUser = await changeUser(searchedUser, newUser);
@@ -864,39 +857,23 @@ crmForm.addEventListener('submit', async (e) => {
   });
 
   // Сортировка пользователей
-  function sortUsers(arr, prop, dir) {
+  function sortUsers(arr, prop, dir = true) {
     return arr.sort((a, b) => {
-      if (prop === 'id' && dir === true) {
-        return a[prop] - b[prop]
-      } else if (prop === 'id' && dir === false) {
-        return b[prop] - a[prop]
-      }
+      if (prop === 'id') return dir ? a[prop] - b[prop] : b[prop] - a[prop]
 
       let sortDir = a[prop] < b[prop];
 
-      if (dir === false) sortDir = a[prop] > b[prop];
+      if (dir === false) sortDir = a[prop] > b[prop]
 
-      if (sortDir) return -1
+      return sortDir ? -1 : 1
     })
   }
 
   // Сортировка по умолчанию при загрузке страницы
-  let sortDirection = true;
-  document.addEventListener('DOMContentLoaded', renderUsers(sortUsers(usersList, 'id', sortDirection)));
-
-  if (window.location.hash) {
-    let id = location.hash.slice(1);
-    let user = await searchUserById(id);
-
-    openAddForm('Изменить данные', id, user);
-
-    crmForm.scrollIntoView();
-
-    window.history.pushState('', '', window.location.pathname);
-  }
+  document.addEventListener('DOMContentLoaded', renderUsers(sortUsers(usersList, 'id')));
 
   // Сортировка по столбцам
-  sortDirection = false;
+  let sortDirection = false;
 
   // ID
   document.querySelector('.crm__table__th__btn--id').addEventListener('click', () => {
@@ -1047,3 +1024,14 @@ crmForm.addEventListener('submit', async (e) => {
 
     window.history.pushState('', '', window.location.pathname);
   })
+
+  if (window.location.hash) {
+    let id = location.hash.slice(1);
+    let user = await searchUserById(id);
+
+    openAddForm('Изменить данные', id, user);
+
+    crmForm.scrollIntoView();
+
+    window.history.pushState('', '', window.location.pathname);
+  }
