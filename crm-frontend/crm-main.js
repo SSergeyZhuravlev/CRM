@@ -7,9 +7,7 @@ const disabledItems = document.querySelectorAll('.disabled-while-loading');
 
 // Получение списка пользователей
 async function getUsers() {
-  let response = await fetch (`http://localhost:3000/api/clients`);
-
-  let result = await response.json();
+  let result = await fetch (`http://localhost:3000/api/clients`).then(res => res.json());
 
   preloader.classList.add('hidden');
   preloaderImg.classList.add('hidden');
@@ -133,7 +131,7 @@ function deleteModalWindow(userObj, userRow) {
     // Снимаем ограничения на фокус
     document.querySelectorAll('button').forEach(btn => {
       btn.removeAttribute('tabindex', '-1')
-    })
+    });
   })
 
   deleteButtonsWrapper.append(acceptDeleteBtn, cancelDeleteBtn);
@@ -174,17 +172,11 @@ async function changeUser(obj, changes) {
 
 // Поиск пользователя по ID
 async function searchUserById(id) {
-  let response = await fetch(`http://localhost:3000/api/clients/${id}`);
-
-  let result = await response.json();
-  return result
+  return await fetch(`http://localhost:3000/api/clients/${id}`).then(res => res.json());
 }
 
 async function searchUserByString(str) {
-  let response = await fetch(`http://localhost:3000/api/clients/?search=${str}`);
-
-  let result = await response.json();
-  return result
+  return await fetch(`http://localhost:3000/api/clients/?search=${str}`).then(res => res.json());
 }
 
 // Создание одного пользователя
@@ -485,8 +477,10 @@ function openAddForm(title, id, userObj, row) {
     const addFormBtnWrapper = document.querySelector('.crm__add-form__btn__wrapper');
     const formDeleteBtn = document.createElement('button');
     formDeleteBtn.classList.add('btn-reset', 'crm__add-form__btn__delete', 'disabled-while-loading');
+    formDeleteBtn.type = 'button';
     formDeleteBtn.textContent = 'Удалить';
     formDeleteBtn.addEventListener('click', () => {
+      formWraper.classList.remove('open');
       // Ограничиваем фокус только кнопками внутри модального окна
       document.querySelectorAll('button').forEach(btn => {
         if (!btn.closest('.delete__modal__content')) {
@@ -497,7 +491,7 @@ function openAddForm(title, id, userObj, row) {
 
       let deleteWindow = deleteModalWindow(userObj, row);
       setTimeout(() => {
-        deleteWindow.classList.add('open')
+        deleteWindow.classList.add('open');
       }, 100);
     })
 
